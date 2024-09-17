@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<h2 class="mb-4">Create New Post</h2>
+<form action="/new" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select
+      id="category"
+      name="category"
+      class="form-control"
+      required
+    >
+      <option value="Technology">Technology</option>
+      <option value="Lifestyle">Lifestyle</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="image">Upload Image:</label>
+    <input type="file" id="image" name="image" class="form-control-file">
+  </div>
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <!-- Quill Editor Container -->
+    <div id="editor" style="height: 300px;"></div>
+    <!-- Hidden input to store the HTML content -->
+    <input type="hidden" name="content" id="content">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<%- include('partials/footer') %>
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+
+  // On form submit, update the hidden input with the HTML content
+  var form = document.querySelector('form');
+  form.onsubmit = function() {
+    var content = document.querySelector('input[name=content]');
+    content.value = quill.root.innerHTML;
+  };
+</script>

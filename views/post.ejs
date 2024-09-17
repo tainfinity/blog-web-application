@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<article class="mt-4 post-content">
+  <h2><%= post.title %></h2>
+  <p>
+    <small class="text-muted">
+      Category: <%= post.category %> |
+      Posted on: <%= new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+      <% if (post.updatedAt) { %>
+        | Updated on: <%= new Date(post.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+      <% } %>
+    </small>
+  </p>
+  <% if (post.image) { %>
+    <img src="<%= post.image %>" class="img-fluid mb-4" alt="Post Image">
+  <% } %>
+  <div>
+    <%- post.content %>
+  </div>
+  <div class="mt-4 mb-5">
+    <a href="/edit/<%= post.id %>" class="btn btn-primary mt-3">Edit</a>
+    <form action="/delete/<%= post.id %>" method="POST" class="d-inline">
+      <button type="submit" class="btn btn-danger mt-3">Delete</button>
+    </form>
+  </div>
+</article>
+
+<%- include('partials/footer') %>

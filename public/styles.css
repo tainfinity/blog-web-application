@@ -1,0 +1,323 @@
+/* public/styles.css */
+
+/* Variables for colors */
+:root {
+  --primary-color: #000000;
+  --primary-color-dark: #393E46;
+  --secondary-color: #B5C0D0;
+  --secondary-color-dark: #B7C4CF;
+  --accent-color: #FF5722;
+  --background-color: #F5F7F8;
+  --text-color: #333333;
+  --text-color-light: #FFFFFF;
+  --muted-text-color: #666666;
+}
+
+/* Ensure the footer sticks to the bottom */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+}
+
+/* Main content should take up available space */
+main {
+  flex: 1;
+  margin-bottom: 2em;
+}
+
+/* Customize the navbar */
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--text-color-light) !important;
+  font-size: 1.1rem;
+}
+
+.navbar .nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+.navbar .dropdown-menu {
+  background-color: var(--primary-color);
+}
+
+.navbar .dropdown-item {
+  color: var(--text-color-light);
+}
+
+.navbar .dropdown-item:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Customize the footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 1em 0;
+  margin-top: 2em;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Style the cards */
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--text-color-light);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  color: var(--primary-color-dark);
+  font-weight: bold;
+}
+
+.card-text {
+  color: var(--muted-text-color);
+}
+
+/* Customize buttons */
+.btn {
+  border-radius: 50px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  color: var(--text-color-light);
+}
+
+.btn-danger {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--text-color-light);
+}
+
+.btn-danger:hover {
+  background-color: darken(var(--accent-color), 10%);
+  border-color: darken(var(--accent-color), 10%);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-color-dark);
+  border-color: var(--secondary-color-dark);
+  color: var(--text-color-light);
+}
+
+.btn-success {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  color: var(--text-color-light);
+}
+
+.btn-success:hover {
+  background-color: darken(#4CAF50, 10%);
+  border-color: darken(#4CAF50, 10%);
+}
+
+/* Style the forms */
+.form-group label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.form-control {
+  margin-bottom: 1em;
+  border-radius: 4px;
+  border: 1px solid var(--muted-text-color);
+}
+
+.form-control-file {
+  margin-bottom: 1em;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+::placeholder {
+  color: var(--muted-text-color);
+}
+
+/* Quill editor customization */
+.ql-toolbar.ql-snow {
+  border-radius: 4px 4px 0 0;
+  border-color: var(--muted-text-color);
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 4px 4px;
+  min-height: 200px;
+  border-color: var(--muted-text-color);
+}
+
+/* Animations for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card.animate__animated {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+/* Customize alerts */
+.alert {
+  border-radius: 4px;
+  color: var(--text-color-light);
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.alert-info {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .navbar .navbar-brand,
+  .navbar .nav-link {
+    font-size: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Custom scrollbar for Quill editor */
+.ql-editor {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.ql-editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ql-editor::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.ql-editor::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.ql-editor::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Additional custom styles */
+body {
+  color: var(--text-color);
+}
+
+h2 {
+  font-weight: bold;
+  color: var(--primary-color-dark);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+  text-decoration: none;
+}
+
+/* Style for card images */
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+/* Style for post images */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+/* Style for small text */
+.text-muted {
+  color: var(--muted-text-color) !important;
+}
+
+/* Style for the Quill editor content */
+.post-content {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: var(--primary-color-dark);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.post-content p {
+  margin-bottom: 1em;
+}
+
+.post-content a {
+  color: var(--accent-color);
+}
+
+.post-content a:hover {
+  color: darken(var(--accent-color), 10%);
+}
