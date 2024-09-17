@@ -1,21 +1,17 @@
 # **Blog Web Application**
 
----
-
 ## **Table of Contents**
 
 1. [Project Description](#project-description)
 2. [Key Features](#key-features)
 3. [Tech Stack](#tech-stack)
 4. [Installation](#installation)
-   
----
+5. [File Structure](#file-structure)
 
 ## **Project Description**
 
 The Blog Web Application is a dynamic and responsive blog platform that allows users to manage their blog posts effectively. Users can create new blog posts with titles, content, categories, and optional image uploads. The app is built with modern design principles using Bootstrap and is fully responsive. It supports CRUD (Create, Read, Update, Delete) operations and has image upload capabilities with file handling managed by Multer.
 
----
 
 ## **Key Features**
 
@@ -26,8 +22,6 @@ The Blog Web Application is a dynamic and responsive blog platform that allows u
 - **Responsive Design**: Uses Bootstrap for a modern, responsive layout.
 - **Rich Text Editing**: Quill.js provides a rich-text editor for formatting post content.
 
----
-
 ## **Tech Stack**
 
 - **Node.js**: Backend runtime for server-side logic.
@@ -37,8 +31,6 @@ The Blog Web Application is a dynamic and responsive blog platform that allows u
 - **Bootstrap**: CSS framework for responsive design and UI components.
 - **Quill.js**: Rich-text editor for writing blog content.
 - **HTML/CSS/JavaScript**: Frontend technologies for UI and client-side functionality.
-
----
 
 ## **Installation**
 
@@ -55,15 +47,35 @@ The Blog Web Application is a dynamic and responsive blog platform that allows u
    ```
 
 3. **Create the uploads directory:**:
-  ```
-  mkdir public/uploads
-  ```
+   ```
+   mkdir public/uploads
+   ```
 
 4. **Run the application**:
    Once everything is set up, start the server by running:
    ```
    node app.js
    ```
-The application will be running on <http://localhost:3000>.
+   The application will be running on <http://localhost:3000>.
+
+## **File Structure**
+   ```
+   blog-web-app/
+   ├── app.js               # Main server file
+   ├── posts.js             # In-memory storage for blog posts
+   ├── public/              # Public assets like CSS, images
+   │   ├── styles.css       # Custom styles
+   │   └── uploads/         # Uploaded images stored here
+   ├── views/               # EJS views for rendering pages
+   │   ├── partials/        # Header and footer partials
+   │   │   ├── header.ejs
+   │   │   └── footer.ejs
+   │   ├── index.ejs        # Home page to display all posts
+   │   ├── new.ejs          # Page to create a new post
+   │   ├── edit.ejs         # Page to edit a post
+   │   ├── post.ejs         # Page to view a single post
+   ├── README.md            # Project documentation
+   └── package.json         # Project metadata and dependencies
+   ```
 
 
